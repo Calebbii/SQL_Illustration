@@ -27,11 +27,11 @@ conn = sqlite3.connect('students.db')
 c = conn.cursor()
 
 # Creating a table
-# c.execute(""" CREATE TABLE students (
-#           first_name text,
-#           last_name text,
-#           grade integer
-#           )""")
+c.execute(""" CREATE TABLE students (
+          first_name text,
+          last_name text,
+          grade integer
+          )""")
 
 # Inserting values to the table 
 # c.execute("INSERT INTO students VALUES ('Leon', 'Kipchumba', 88)")
@@ -51,15 +51,15 @@ students = [
 ]
 
 
-# for student in students:
-#     c.execute("INSERT INTO students VALUES (?, ?, ?)", (student['first_name'], student['last_name'],student['grade']))
+for student in students:
+    c.execute("INSERT INTO students VALUES (?, ?, ?)", (student['first_name'], student['last_name'],student['grade']))
 
 
-# c.execute("SELECT * FROM students")
-# results = c.fetchall()
+c.execute("SELECT * FROM students")
+results = c.fetchall()
 
-# for record in results:
-#     print(record)
+for record in results:
+    print(record)
 
 # Creating students objects
 
